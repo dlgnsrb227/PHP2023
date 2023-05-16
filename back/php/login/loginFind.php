@@ -1,3 +1,10 @@
+<?php
+    include "../connect/connect.php";
+    include "../connect/session.php";
+
+    
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,30 +21,25 @@
     <main id="main" class="container ">
         <div class="login_inner">
             <div class="banner"><img src="../../assets/img/logo.png" alt="배너이미지"></div>
+            <p>아이디를 찾기 위한 정보를 입력해주세요</p>
             <div class="login_form">
-                <form action="#" name="#" method="post">
+                <form action="loginfindResult.php" name="loginfind" method="post">
                     <fieldset>
                         <legend class="blind">아이디 찾기</legend>
                         <div>
-                            <label for="youEmail" class="blind">이메일</label>
-                            <input type="email" id="youEmail" name="youEmail" class="inputStyle"   placeholder="이메일" required>
+                            <label for="youName">이름</label>
+                            <input type="text" id="youName" name="youName" class="inputStyle"   placeholder="이름" required>
                         </div>
                         <div>
-                            <label for="youPass" class="blind">비밀번호</label>
-                            <input type="password" id="youPass" name="youPass" class="inputStyle" placeholder="비밀번호" required>
+                            <label for="youEmail">이메일</label>
+                            <input type="email" id="youEmail" name="youEmail" class="inputStyle" placeholder="이메일" required>
                         </div>
-                        <button type="submit" class="button">로그인</button>
+                        <button type="submit" class="button">아이디 찾기</button>
                     </fieldset>
                 </form>
             </div>
-            <div class="login_footer">
-                <ul class="listStyle">
-                    <li><a href="join.html">회원가입</a></li>
-                    <li><a href="#">아이디 찾기</a></li>
-                    <li><a href="#">비밀번호 찾기</a></li>
-                </ul>
-            </div>
         </div>
+        
     </main>
 </body>
 </html>

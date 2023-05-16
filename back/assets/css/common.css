@@ -18,10 +18,9 @@
 
 .inputStyle {
     background-color: #EBFFB3B2;
-    ;
     width: 100%;
     border-radius: 5px;
-    padding: 1em 0;
+    padding: 1em 10px;
     border: 0;
     font-weight: 300;
 }
@@ -70,7 +69,6 @@ label.required::after {
     color: #ff0000;
 }
 /* list style */
-.listStyle {}
 .listStyle li {
     padding-left: 16px;
     position: relative;
