@@ -142,7 +142,7 @@
                     }
                 ?>
             </p>
-            <div class="intro__btn"><a href="#">로그인</a></div>
+            <div class="intro__btn"><a href="../main/main.php">로그인</a></div>
         </div>
         <!-- intro__inner -->
 
