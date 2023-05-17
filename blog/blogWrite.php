@@ -71,17 +71,5 @@
     <?php include "../include/footer.php" ?>
     <!-- footer -->
 
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-    <script>
-        const Editor = toastui.Editor;
- 
-        const editor = new Editor({
-            el: document.querySelector('#editor'),
-            height: '1000px',
-            initialEditType: 'markdown',
-            previewStyle: 'vertical'
-        });
-    </script>
-
 </body>
 </html>

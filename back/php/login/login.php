@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입 페이지</title>
+    <title>로그인 페이지</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -29,7 +29,7 @@
         <a href="#footer">푸터 영역 바로가기</a>
     </div>
     <!-- //skip -->
-    <main id="main" class="container ">
+    <main id="main" class="container mt150">
         <div class="login_inner">
             <div class="banner"><img src="../../assets/img/logo.png" alt="배너이미지"></div>
             <div class="login_form">
@@ -118,7 +118,7 @@
             }
         }
 
-        document.querySelector("#youID").addEventListener("keyup", IDChecking);
+        document.querySelector("#youID").addEventListener("focusout", IDChecking);
         // document.querySelector("#youPass").addEventListener("keyup", pwChecking);
     </script>
 </body>
