@@ -2,9 +2,9 @@
     include "../connect/connect.php";
     include "../connect/session.php";
 
-    echo "<pre>";
-    var_dump($_SESSION);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_SESSION);
+    // echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +43,7 @@
                 <div class="blog__wrap">
                     <h2>All Post</h2>
                     <div class="cards__inner col3 line2">
-                        <div class="card">
+                        <!-- <div class="card">
                             <figure class="card__img">
                                 <source srcset="../assets/img/blog02.jpg, ../assets/img/blog02@2x.jpg, ../assets/img/blog02@3x.jpg" />
                                 <img src="../assets/img/blog02.jpg" alt="카드이미지">
@@ -170,7 +170,27 @@
                                     <span class="date">2023.05.11</span>
                                 </div>
                             </figure>
+                        </div> -->
+
+<?php
+    $sql = "SELECT * FROM blog WHERE blogDelete = 0 ORDER BY blogID DESC";
+    $result = $connect -> query($sql);
+?>
+<?php
+    foreach($result as $blog){
+?>
+                        <div class="card">
+                            <figure class="card__img">
+                                <a href="blogView.php?blogID=<?=$blog['blogID']?>">
+                                    <img src="../assets/blog/<?=$blog['blogImgFile']?>" alt="<?=$blog['blogTitle']?>">
+                                </a>
+                            </figure>
+                            <div class="card__title">
+                                <h3><?=$blog['blogTitle']?></h3>
+                                <p><?=$blog['blogContents']?></p>
+                            </div>
                         </div>
+<?php } ?>
                     </div>
                 </div>
             </div>

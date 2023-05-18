@@ -1,3 +1,18 @@
+<?php
+    include "../connect/connect.php";
+
+    $adminName = $_POST['youName'];
+    $adminEmail = $_POST['youEmail'];
+    $adminNick = $_POST['youNick'];
+    $adminPass = sha1($_POST['youPass']);
+    $adminBirth = $_POST['youBirth'];
+    $adminPhone = $_POST['youPhone'];
+    $regTime = time();
+
+    $sql = "INSERT INTO adminMembers(adminEmail, adminName, adminNick, adminPass, adminBirth, adminPhone, adminDelete, adminRegtime, adminModtime) VALUES('$adminEmail', '$adminName', '$adminNick', '$adminPass', '$adminBirth', '$adminPhone', '1', '$regTime', '$regTime')";
+    $connect -> query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -40,7 +55,7 @@
             <p class="welcomemsg">회원 가입이 완료 되었습니다.<br>로그인하여 더 많은 서비스를 이용해보세요 !</p>
             <div class="login__box">
                 <ul>
-                    <li><a href="login.html">로그인 하러가기</a></li>
+                    <li><a href="#">로그인 하러가기</a></li>
                 </ul>
             </div>
         </div>
