@@ -106,9 +106,24 @@
             if($fileExtension == "jpg" || $fileExtension == "jpeg" || $fileExtension == "png" || $fileExtension == "gif"){
                 $boardImgDir = "../img/board/";
                 $boardImgName1 = "Img_".time().rand(1,99999)."."."{$fileExtension}";
-
                 echo "이미지 파일이 맞습니다.";
-                $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardAuthor, boardView, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardAuthor', '$boardView', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+                if(isset($boardContents2)){
+                    if(isset($boardContents3)){
+                        if(isset($boardContents4)){
+                            if(isset($boardContents5)){
+                                $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardContents3, boardContents4, boardContents5, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardContents3', '$boardContents4', '$boardContents5', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+                            } else {
+                                $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardContents3, boardContents4, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardContents3', '$boardContents4', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+                            }
+                        } else {
+                            $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardContents3, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardContents3', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+                        }
+                    } else {
+                        $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+                    }
+                } else {
+                    $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+                }
             } else {
                 echo "<script>alert('이미지 파일이 아닙니다.')</script>";
             }
@@ -139,6 +154,20 @@
     //     var_dump($boardImg5);
     // }
     // echo "</pre>";
+
+
+// // 컨텐츠 내용이 2개 있을 때의 쿼리문
+// $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+
+//     // 컨텐츠 내용이 3개 있을 때의 쿼리문
+// $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardContents3, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardContents3', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+
+//     // 컨텐츠 내용이 4개 있을 때의 쿼리문
+// $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardContents3, boardContents4, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardContents3', '$boardContents4', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+
+// // 컨텐츠 내용이 5개 있을 때의 쿼리문
+// $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardContents2, boardContents3, boardContents4, boardContents5, boardAuthor, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardContents2', '$boardContents3', '$boardContents4', '$boardContents5', '$boardAuthor', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
+
 
     $result = $connect -> query($sql);
     $result = move_uploaded_file($boardImgTmp1, $boardImgDir.$boardImgName1);
