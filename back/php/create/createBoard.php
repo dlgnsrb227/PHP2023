@@ -4,6 +4,7 @@
     $sql = "create table board(";
     $sql .= "boardID int(10) unsigned NOT NULL auto_increment,";
     $sql .= "memberID int(10) NOT NULL,";
+    $sql .= "boardAuthor varchar(40) NOT NULL,";
     $sql .= "boardName varchar(100) NOT NULL,";
     $sql .= "boardTitle varchar(100) NOT NULL,";
     $sql .= "boardIngre varchar(100) NOT NULL,";
@@ -12,7 +13,7 @@
     $sql .= "boardContents3 longtext DEFAULT NULL,";
     $sql .= "boardContents4 longtext DEFAULT NULL,";
     $sql .= "boardContents5 longtext DEFAULT NULL,";
-    $sql .= "ImgSrc varchar(40) DEFAULT NULL,";
+    $sql .= "ImgSrc1 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSrc2 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSrc3 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSrc4 varchar(40) DEFAULT NULL,";
