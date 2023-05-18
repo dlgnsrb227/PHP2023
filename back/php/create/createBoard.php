@@ -18,7 +18,7 @@
     $sql .= "ImgSrc3 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSrc4 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSrc5 varchar(40) DEFAULT NULL,";
-    $sql .= "ImgSize varchar(40) DEFAULT NULL,";
+    $sql .= "ImgSize1 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSize2 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSize3 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSize4 varchar(40) DEFAULT NULL,";

@@ -105,10 +105,10 @@
         if($fileType == "image"){
             if($fileExtension == "jpg" || $fileExtension == "jpeg" || $fileExtension == "png" || $fileExtension == "gif"){
                 $boardImgDir = "../img/board/";
-                $boardImgName = "Img_".time().rand(1,99999)."."."{$fileExtension}";
+                $boardImgName1 = "Img_".time().rand(1,99999)."."."{$fileExtension}";
 
                 echo "이미지 파일이 맞습니다.";
-                // $sql = "INSERT INTO blog(memberID, blogTitle, blogContents, blogCategory, blogAuthor, blogView, blogLike, blogImgFile, blogImgSize, blogDelete, blogRegTime) VALUES('$memberID', '$blogTitle', '$blogContents', '$blogCategory', '$blogAuthor', '$blogView', '$blogLike', '$blogImgName', '$blogImgSize', '0', '$regTime')";
+                $sql = "INSERT INTO board(memberID, boardName, boardTitle, boardIngre, boardContents1, boardAuthor, boardView, boardView, ImgSrc1, ImgSize1, regTime) VALUES('$memberID', '$boardName', '$boardTitle', '$boardIngre', '$boardContents1', '$boardAuthor', '$boardView', '$boardView', '$boardImgName1', '$boardImgSize1', '$regTime')";
             } else {
                 echo "<script>alert('이미지 파일이 아닙니다.')</script>";
             }
@@ -139,6 +139,9 @@
     //     var_dump($boardImg5);
     // }
     // echo "</pre>";
+
+    $result = $connect -> query($sql);
+    $result = move_uploaded_file($boardImgTmp1, $boardImgDir.$boardImgName1);
 ?>
 <script>
     // location.href = "board.php";
