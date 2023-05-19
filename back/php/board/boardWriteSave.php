@@ -95,6 +95,8 @@
         }
     }
 
+    // 이미지 있을 때
+
     // 이미지 파일명 확인
     if($boardImgType1){
         $fileTypeExtension = explode("/", $boardImgType1);
@@ -130,12 +132,12 @@
         } else {
             echo "<script>alert('이미지 파일이 아닙니다.')</script>";
         }
+        // 이미지 사이즈 확인
+        if($boardImgSize1 > 10000000){
+        echo "<script>alert('첫 번째 이미지 파일 용량이 1MB를 초과했습니다.')</script>";
+        }
     }
 
-    // 이미지 사이즈 확인
-    if($boardImgSize1 > 10000000){
-    echo "<script>alert('이미지 파일 용량이 1MB를 초과했습니다.')</script>";
-    }
 
     // echo "<pre>";
     // if(isset($boardImg1)){
