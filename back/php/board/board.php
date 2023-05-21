@@ -239,6 +239,11 @@
             float: right;
             margin-top: 10px;
         }
+        .board__name {
+            background-color: #FFEBCD;
+            padding: 2px 7px;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -374,7 +379,7 @@
                 </div>
                 <table>
                     <colgroup>
-                        <col style="width: 5%; padding-right: 20px;">
+                        <col style="width: 10%; padding-right: 20px;">
                         <col>
                         <col style="width: 10%;">
                         <col style="width: 15%;">
@@ -390,10 +395,50 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>7</td>
+<?php
+    if(isset($_GET['page'])){
+        $page = (int)$_GET['page'];
+    } else {
+        $page = 1;
+    }
+
+    $viewNum = 10;
+    $viewLimit = ($viewNum * $page) - $viewNum;
+
+    $sql = "SELECT boardID, boardName, boardAuthor, boardTitle, boardView, boardContents1, regTime FROM board ORDER BY boardID DESC LIMIT {$viewLimit}, {$viewNum}";
+    $result = $connect -> query($sql);
+
+    if($result){
+        $count = $result -> num_rows;
+        // echo $count;
+
+        if($count > 0){
+            for($i=0; $i<$count; $i++){
+                $info = $result -> fetch_array(MYSQLI_ASSOC);
+
+                echo "<tr>";
+                echo "<td>";
+                echo "<span>".$info['boardID']."</span>";
+                echo "<h4 class='board__name'>".$info['boardName']."</h4>";
+                echo "</td>";
+                echo "<td>";
+                echo "<a href='boardView.php?boardID={$info['boardID']}'>".$info['boardTitle']."</a>";
+                echo "<p>".$info['boardContents1']."</p>";
+                echo "</td>";
+                echo "<td>".$info['boardAuthor']."</td>";
+                echo "<td>".date('y. m. d', $info['regTime'])."</td>";
+                echo "<td>".$info['boardView']."</td>";
+            }
+        }
+    }
+?>
+                        <!-- <tr>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <span>10</span>
+                                <h4 class="board__name">당근스프</h4>
+                            </td>
+                            <td>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
@@ -403,7 +448,7 @@
                         <tr>
                             <td>6</td>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
@@ -412,7 +457,7 @@
                         </tr><tr>
                             <td>5</td>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
@@ -421,7 +466,7 @@
                         </tr><tr>
                             <td>4</td>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
@@ -430,7 +475,7 @@
                         </tr><tr>
                             <td>3</td>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
@@ -439,7 +484,7 @@
                         </tr><tr>
                             <td>2</td>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
@@ -448,13 +493,13 @@
                         </tr><tr>
                             <td>1</td>
                             <td>
-                                <a href="boardView.html" ">달래를 이용해 요리를 해보았어요.</a>
+                                <a href="boardView.html">달래를 이용해 요리를 해보았어요.</a>
                                 <p>요즘에 자주 해먹는 달래를 재료로 달래무침을 만들어 보았습니다. <br>역시 재철이라 그런지 향기도 너무 좋고 봄이 온 느낌도 들어서 너무 맛있게 ...</p>
                             </td>
                             <td>홍길동</td>
                             <td>2023-05-08</td>
                             <td>100</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

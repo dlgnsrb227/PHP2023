@@ -188,3 +188,9 @@
     margin: 20px 5px;
     font-weight: 100;
 }
+.modi__img {
+    width: 350px;
+    height: 280px;
+    margin: 0 auto;
+    display: block;
+}
