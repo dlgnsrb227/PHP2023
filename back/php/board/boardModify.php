@@ -47,6 +47,7 @@
 
     if($result){
         $info = $result -> fetch_array(MYSQLI_ASSOC);
+        echo "<div style='display:none'><label for='boardID'>번호</label><input type='text' id='boardID' name='boardID' class='inputStyle' value='".$info['boardID']."'></div>";
     }
     if($contresult){
         $continfo = $contresult -> fetch_array(MYSQLI_ASSOC);
