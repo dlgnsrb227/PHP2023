@@ -225,7 +225,7 @@
     padding: 0 4px 2px 3px;
     margin-bottom: 40px;
 }
-.blog__comment .comment__write {
+.blog__comment .comment__write fieldset {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
