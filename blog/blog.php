@@ -196,27 +196,15 @@
             </div>
             <div class="right">
                 <div class="blog__aside">
-                    <div class="intro">
-                        <picture class="img">
-                            <source srcset="../assets/img/intro01.png, ../assets/img/intro01@2x.png 2x, ../assets/img/intro01@3x.png 3x" />
-                            <img src="../assets/img/intro01.png" alt="소개이미지">
-                        </picture> 
-                        <p class="text">
-                            겸손함을 유지하며 세부적인 곳까지 파고드는 개발자가 되겠습니다.
-                        </p>
-                    </div>
-                    <div class="cate">
-                        <h4>카테고리</h4>
-                    </div>
-                    <div class="cate">
-                        <h4>최신글</h4>
-                    </div>
-                    <div class="cate">
-                        <h4>인기글</h4>
-                    </div>
-                    <div class="cate">
-                        <h4>최신 댓글</h4>
-                    </div>
+                    <?php include "../include/blogTitle.php" ?>
+
+                    <?php include "../include/blogCate.php" ?>
+
+                    <?php include "../include/blogNew.php" ?>
+
+                    <?php include "../include/blogPop.php" ?>
+
+                    <?php include "../include/blogComment.php" ?>
                 </div>
             </div>
         </div>
