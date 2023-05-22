@@ -24,7 +24,6 @@
     $sql .= "ImgSize4 varchar(40) DEFAULT NULL,";
     $sql .= "ImgSize5 varchar(40) DEFAULT NULL,";
     $sql .= "boardView int(10) NOT NULL,";
-    $sql .= "Modtime int(40) DEFAULT NULL,";
     $sql .= "regTime int(20) NOT NULL,";
     $sql .= "PRIMARY KEY(boardID)";
     $sql .= ") charset=utf8";

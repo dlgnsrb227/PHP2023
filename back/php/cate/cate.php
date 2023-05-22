@@ -130,9 +130,6 @@
             /* background-color: #444; */
             padding: 15px;
         }
-        .category_wrap .content__inner {
-            cursor: pointer;
-        }
         .list_desc h3 {
             font-size: 30px;
             color: #000;
@@ -228,19 +225,7 @@
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="container">
-            <a href="../../main/main.html">
-                <img src="../../assets/img/logo.png" alt="로고이미지">
-            </a>
-            <ul>
-                <li><a href="#">카테고리</a></li>
-                <li><a href="../../board/board.html">요리방</a></li>
-                <li><a href="../../login/login.html">로그인</a></li>
-                <li><a href="#">마이페이지</a></li>
-            </ul>
-        </div>
-    </header>
+    <?php include "../include/header.php"?>
     <main id="main" >
         <div class="category_wrap">
             <div class="container">
@@ -248,7 +233,7 @@
                     <h3>어떤 부분을 자세히 알고싶은가요 ?</h3>
                     <div class="content__inner">
                         <div data-target="div1">
-                            <a>
+                            <a href="#">
                                 <img src="../../assets/img/content01.svg" alt="눈">
                                 <p>눈</p>
                             </a>
@@ -328,53 +313,10 @@
         </div>
 
     </main>
-    <footer id="footer">
-        <div class="container">
-            <div class="footlogo">
-                <img src="../../assets/img/footlogo.svg" alt="로고이미지">
-            </div>
-            <div class="footcont">
-                <ul>
-                    <li><a href="#">회사소개</a></li>
-                    <li><a href="#">고객센터</a></li>
-                    <li><a href="#">이용약관</a></li>
-                    <li><a href="#">개인정보 처리방침</a></li>
-                </ul>
-                <ul>
-                    <li>주식회사 온리포유</li>
-                    <li>사업자 등록번호 : 00 - 00 - 0000</li>
-                    <li>대표 : 이유나</li>
-                </ul>
-                <ul>
-                    <li>대표번호 : 1588-0000</li>
-                    <li>이메일 : only@for.you</li>
-                    <li>주소 : 대한민국</li>
-                </ul>
-                <strong>copyright &copy; 2023 onlyforyou Inc All right reserved</strong>
-            </div>
-        </div>
-    </footer>
+    <?php include "../include/footer.php"?>
     <div id="modal">
         <div class="container">
-            <!-- <div class="header">
-                <div class="c1">
-                    <img src="../../assets/img/01-01.png" alt="아몬드">
-                </div>
-                <div class="c2">
-                    <h1>아몬드</h1>
-                </div>
-                <div class="c3">
-                    <img src="../../assets/img/x.png" alt="">
-                </div>
-            </div>
-            <div class="main">
-                <ul>
-                    <li>🥜 <span> 다이어트에 도움이 됩니다.</span> 아몬드는 탄수화물 대비 단백질, 지방, 식이섬유 등의 영양소가 균형잡혀 있어 다이어트에 적합한 간식입니다. 또한 아몬드는 식사 전에 먹으면 포만감을 느끼게 하여 과식을 예방할 수 있습니다.</li>
-                    <li>🥜 <span>심혈관 건강을 개선합니다.</span> 아몬드는 단백질, 식이섬유, 비타민 E, 마그네슘 등의 영양소가 풍부하여 심혈관 건강에 도움이 됩니다. 또한 아몬드는 혈압을 낮추는데도 효과가 있습니다.</li>
-                    <li>🥜 <span>뼈 건강을 강화합니다.</span> 아몬드에는 칼슘, 마그네슘, 인, 칼륨 등의 미네랄이 풍부하게 포함되어 있어 뼈 건강을 강화하는데 도움이 됩니다.</li>
-                    <li>🥜 <span>뇌 건강을 지원합니다.</span> 아몬드에는 오메가-3 지방산과 비타민 E 등의 영양소가 포함되어 있어 뇌 건강을 지원하는데 도움이 됩니다. 또한 아몬드는 뇌 기능을 개선하고 기억력을 강화하는 데도 효과가 있습니다.</li>
-                </ul>
-            </div> -->
+            
         </div>
     </div>
     <script>
@@ -383,13 +325,49 @@
         const list_title = document.querySelector(".list_title");
         const content__inner = document.querySelectorAll(".content__inner > div");
         const modal_container = document.querySelector("#modal .container");
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        let arr =[];
+        
         
 
+        document.addEventListener("DOMContentLoaded", ()=> {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            if (category) {
+                data(category);
+                const targetElement = document.querySelector(".list");
+                const scrollToTarget = () => {
+                const windowHeight = window.innerHeight;
+                const targetOffset = targetElement.getBoundingClientRect().top;
+                const currentOffset = window.pageYOffset;
+                const difference = targetOffset - currentOffset;
+                const duration = 300;
+                const startTime = performance.now();
+                const animateScroll = (timestamp) => {
+                    const timeElapsed = timestamp - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    const scrollOffset = currentOffset + difference * progress;
+                    if (windowHeight > targetElement.offsetHeight) {
+                    window.scrollTo(0, scrollOffset);
+                    } else {
+                    window.scrollTo(0, scrollOffset - windowHeight / 2);
+                    }
+                    if (timeElapsed < duration) {
+                    requestAnimationFrame(animateScroll);
+                    }
+                };
+                requestAnimationFrame(animateScroll);
+                };
+                scrollToTarget();
+            }
+        });
+
         content__inner.forEach((el,i)=>{
-            let arr =["eye","river","born","pregnant","stress","skin","blood","digestive","Breathing","climacterium"];
+            const arr1 =["eye","river","born","pregnant","stress","skin","blood","digestive","Breathing","climacterium"];
             
             el.addEventListener("click",()=>{
-                data(arr[i])
+                data(arr1[i])
             })
         })
         
@@ -399,8 +377,8 @@
             .then(data => {
                 arr = data.map((item, index) => {
                     const a = item[test];
-                    console.log(a)
-                    const datalist  = [
+                    console.log(a);
+                    let datalist  = [
                         {
                             title : a[0].title,
                             name : a[0].name,
@@ -478,9 +456,8 @@
             
             const a = document.querySelectorAll(".list_desc > a");
             // console.log(a)
-            a.forEach((el, i) => {
-                el.addEventListener("click", (e) => {
-                    console.log(e)
+            a.forEach((modal, i) => {
+                modal.addEventListener("click", (e) => {
                     e.preventDefault();
                     modallist(i);
                 });
@@ -511,29 +488,31 @@
                 </div>
                 `)
                 modal_container.innerHTML = show.join('');
-                modal();
-            }
+                modal()
+        }
             
         
 
         function modal(){
             const image = document.querySelector(".c3 img");
             const modal = document.querySelector("#modal");
-            const a = document.querySelectorAll (".list_desc a");
+            const a1 = document.querySelectorAll (".list_desc a");
             const body = document.querySelector("body");
-
-            a.forEach((el) => {
-                el.addEventListener("click", () => {
-                    modal.style.display = "block";
-                    body.classList.add("modal-open");
-                })
+            a1.forEach((el) => {
+                modal.style.display = "block";
+                body.classList.add("modal-open");
             })
-                image.addEventListener("click", function(){
-                    modal.style.display = "none";
-                    body.classList.remove("modal-open");
-                })
+            image.addEventListener("click", function(){
+                modal.style.display = "none";
+                body.classList.remove("modal-open");
+            })
         }
-        
+
+
+
+
+
+
         
     </script>
 
