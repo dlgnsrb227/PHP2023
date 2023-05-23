@@ -6,10 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/main.css">
-    <link rel="stylesheet" href="../../assets/css/maincate.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <title>Only For You</title>
+    <style>
+        .scroll-arrow {
+        position: fixed;
+        bottom: 30px; /* 원하는 위치로 조정 */
+        width: 40px; /* 화살표 너비 */
+        height: 40px; /* 화살표 높이 */
+        background-image: url("../../assets/img/hwa.png"); /* 화살표 이미지 경로 */
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: 9999; /* 화살표가 다른 요소 위에 표시되도록 설정 */
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: default;
+        }
 
+        /* 애니메이션 효과 추가 */
+        .scroll-arrow {
+        animation: scrollAnimation 1s infinite alternate;
+        }
+
+        @keyframes scrollAnimation {
+        0% {
+            transform: translateY(0); /* 초기 위치 */
+        }
+        100% {
+            transform: translateY(10px); /* 이동할 거리 */
+        }
+        }
+    </style>
 </head>
 <body>
     <header id="header">
@@ -61,68 +89,69 @@
             </div> -->
             <div class="content">
                 <h3>어떤 부분을 자세히 알고싶은가요 ?</h3>
-                <div class="content__inner blur">
-                    <div class="card">
+                <div class="content__inner">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content01.svg" alt="눈">
                             <p>눈</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content02.svg" alt="간">
                             <p>간</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content03.svg" alt="뼈">
                             <p>뼈</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content04.svg" alt="임산부">
                             <p>임산부</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content05.svg" alt="스트레스">
                             <p>스트레스</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content06.svg" alt="피부">
                             <p>피부</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content07.svg" alt="혈액순환">
                             <p>혈액순환</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content08.svg" alt="소화기능">
                             <p>소화기능</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content09.svg" alt="호흡기능">
                             <p>호흡기능</p>
                         </a>
                     </div>
-                    <div class="card">
+                    <div>
                         <a href="#">
                             <img src="../../assets/img/content10.svg" alt="갱년기">
                             <p>갱년기</p>
                         </a>
                     </div>
                 </div>
+                
             </div>
             
         </div>

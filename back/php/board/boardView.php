@@ -25,6 +25,13 @@
     if(isset($_GET['boardID'])){
         $boardID = $_GET['boardID'];
 
+        $check = "SELECT * FROM board WHERE boardID = '$boardID'";
+        $result = $connect -> query($check);
+        $checkcount = $result -> num_rows;
+        if($checkcount == 0){
+            echo "<script>alert('존재하지 않는 게시물입니다.'); window.history.back();</script>";
+        }
+
         $sql = "UPDATE board SET boardView = boardView + 1 WHERE boardID = {$boardID}";
         $connect -> query($sql);
         // boardView 증가
@@ -96,7 +103,13 @@
                         <div class="swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="../img/board/<?= $imginfo['ImgSrc1'] ?>" alt="음식이미지">
+<?php
+    if($imginfo['ImgSrc1'] !== null && $imginfo['ImgSrc1'] != ""){
+        echo "<img src='../img/board/".$imginfo['ImgSrc1']."' alt='업로드이미지'>";
+    } else {
+        echo "<img src='../img/board/default.png' alt='업로드이미지'>";
+    }
+?>
                                     <span>
                                         <?=$continfo['boardContents1']?>
                                     </span>

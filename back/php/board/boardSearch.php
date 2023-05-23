@@ -197,7 +197,6 @@
         }
         .board_pages ul li a:hover{
             background-color: #efefef;
-            color: #000;
         }
         .board_view {
             margin-top: 40px;
@@ -380,7 +379,7 @@
                 </div>
                 <table>
                     <colgroup>
-                        <col style="width: 15%;">
+                        <col style="width: 10%; padding-right: 20px;">
                         <col>
                         <col style="width: 10%;">
                         <col style="width: 15%;">

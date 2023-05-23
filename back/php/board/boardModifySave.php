@@ -263,10 +263,9 @@
                     $connect -> query($sql);
                 }
             }
+            Header("Location: boardView.php?boardID=$boardID");
         } else {
-            echo "<script>alert('비밀번호가 일치하지 않습니다.')</script>";
-            // Header("Location: boardModify.php?boardID=$boardID");
+            echo "<script>alert('비밀번호가 일치하지 않습니다.'); window.history.back();</script>";
         }
-        Header("Location: boardView.php?boardID=$boardID");
     }
 ?>
