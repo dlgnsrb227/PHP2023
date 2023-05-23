@@ -194,3 +194,11 @@
     margin: 0 auto;
     display: block;
 }
+.modi__pass {
+    width: 100%;
+    display: flex;
+    justify-content:right;
+}
+.modi__pass label {
+    margin: 15px 10px 0 0;
+}

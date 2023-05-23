@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="board_btn mb100">
-                    <a href="#" class="btnStyle4">삭제</a>
+                    <a href="boardRemove.php?boardID=<?=$_GET['boardID']?>" class="btnStyle4" onclick="return confirm('정말 삭제하시겠습니까?', '')">삭제</a>
                     <a href="boardModify.php?boardID=<?=$_GET['boardID'] ?>" class="btnStyle4">수정</a>
                     <a href="board.html" class="btnStyle4">목록</a>
                 </div>

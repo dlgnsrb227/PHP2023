@@ -27,6 +27,14 @@
 .inputStyle2 {
     left: -50px;
 }
+.inputStyle3 {
+    background-color: #fff;
+    width: 30%;
+    border-radius: 5px;
+    padding: 1em 10px;
+    border: 0;
+    font-weight: 300;
+}
 .img__upload {
     position: relative;
     display: inline-block;

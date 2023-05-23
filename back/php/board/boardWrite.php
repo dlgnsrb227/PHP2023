@@ -99,7 +99,7 @@
                     </div>
                     <div>
                         <label for="boardContents${fieldsetCount}">레시피 -${fieldsetCount}단계</label>
-                        <textarea name="boardContents${fieldsetCount}" id="boardContents${fieldsetCount}" rows="20" class="inputStyle" placeholder="구체적인 레시피의 내용을 적어주세요. 최대 다섯 장까지 가능합니다."></textarea>
+                        <textarea name="boardContents${fieldsetCount}" id="boardContents${fieldsetCount}" rows="20" class="inputStyle" placeholder="구체적인 레시피의 내용을 적어주세요. 최대 다섯 장까지 가능합니다." required></textarea>
                     </div>
                 `
                 contentsAdd.appendChild(newFieldSet);

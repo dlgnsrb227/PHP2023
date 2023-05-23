@@ -124,7 +124,12 @@
                             <span class="contents__plus">내용 추가하기</span>
                             <span class="contents__minus hide">내용 삭제하기</span>
                         </div> -->
-                        <div class="save__btn">
+                        <div class="modi__pass">
+                            <label for="modiPass">비밀번호</label>
+                            <input type="password" id="modiPass" name="modiPass" class="inputStyle3" placeholder="비밀번호를 입력하세요." required>
+                            <input type="text" id="count" name="count" class="inputStyle3" value="<?= $countcont ?>" style='display:none'>
+                        </div>
+                        <div class="save__btn mt50">
                             <button type="submit" class="btnStyle3 aggro">저장</button>
                             <a href="board.php" class="btnStyle3">취소</a>
                         </div>

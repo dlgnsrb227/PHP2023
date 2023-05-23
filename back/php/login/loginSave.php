@@ -32,6 +32,10 @@
             $_SESSION['youID'] = $memberInfo['youID'];
             $_SESSION['youName'] = $memberInfo['youName'];
             $_SESSION['youNick'] = $memberInfo['youNick'];
+            $_SESSION['youEmail'] = $memberInfo['youEmail'];
+            $_SESSION['youPhone'] = $memberInfo['youPhone'];
+            $_SESSION['youSex'] = $memberInfo['youSex'];
+            $_SESSION['youAge'] = $memberInfo['youAge'];
 
             Header("Location: ../main/main.php");
         }
