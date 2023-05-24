@@ -13,7 +13,7 @@
     }
 
     // 데이터 조회
-    $sql = "SELECT memberID, youID, youName, youPass, youNick FROM member WHERE youID = '$youID' AND youPass = '$youPass'";
+    $sql = "SELECT memberID, youID, youName, youPass, youNick, youEmail, youPhone, youSex, youAge FROM member WHERE youID = '$youID' AND youPass = '$youPass'";
     $result = $connect -> query($sql);
     if($result){
         $count = $result -> num_rows;

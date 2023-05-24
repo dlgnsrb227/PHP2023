@@ -949,7 +949,10 @@ to {
 }
 .box6.show {
     opacity: 1;
-}  
+}
+.catebox {
+    box-sizing: border-box;
+}
 .scontainer {
     opacity: 0;
     transition: all 1s;

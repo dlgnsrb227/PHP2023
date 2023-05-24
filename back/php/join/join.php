@@ -292,7 +292,7 @@
                 $("#youID").focus();
                 return false;
             }
-            let getyouID = RegExp(/^[a-z]+$/);
+            let getyouID = RegExp(/^[a-z0-9]+$/);
             if(!getyouID.test($("#youID").val())){
                 $("#youIDComment").text("* ID는 영어만 사용 가능합니다.");
                 $("#youID").val('');

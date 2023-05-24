@@ -10,10 +10,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+<?php include "../include/head.php"; ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
     <style>
@@ -22,7 +19,7 @@
             align-items: flex-end;
         }
     </style>
-    <title>Only For You</title>
+    <title>요리방 수정</title>
 </head>
 <body>
     <?php include "../include/header.php" ?>

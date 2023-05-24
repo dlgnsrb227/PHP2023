@@ -283,7 +283,7 @@
             <form action="mypageImgeUpload.php" method="POST" onsubmit="return checkFile()" enctype="multipart/form-data">
                 <label for="blogFile">
                     <?php if (!empty($imgsrc)) {
-                        echo "<img src='../../assets/mypage/" . $imgsrc . "' alt='이미지' class='file_img' id='blogFileUp'>";
+                        echo "<img src='../img/profile/" . $imgsrc . "' alt='이미지' class='file_img' id='blogFileUp'>";
                         } else {
                             echo "<img id='blogFileUp' src='../../assets/img/User.png' alt='이미지' class='file_img'>";
                         }

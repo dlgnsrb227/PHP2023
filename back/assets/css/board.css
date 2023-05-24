@@ -10,7 +10,7 @@
 .boardW__write {
     box-sizing: border-box;
     padding: 30px;
-    background-color: #F2FFF5;
+    background-color: #f2fff5;
 }
 .boardW__write fieldset > div > label {
     font-size: 16px;
@@ -21,18 +21,18 @@
     display: flex;
     justify-content: right;
 }
-.boardW__write form .save__btn button
-,.boardW__write form .save__btn a {
+.boardW__write form .save__btn button,
+.boardW__write form .save__btn a {
     margin-left: 10px;
     box-sizing: border-box;
     font-size: 16px;
     font-weight: 100;
-    background-color: #B2C7B2;
+    background-color: #b2c7b2;
     border-radius: 30px;
     transition: all 0.3s;
 }
-.boardW__write form .save__btn button:hover
-,.boardW__write form .save__btn a:hover {
+.boardW__write form .save__btn button:hover,
+.boardW__write form .save__btn a:hover {
     background-color: #c8ffd6;
     color: #8a9b8a;
     cursor: pointer;
@@ -66,7 +66,7 @@
 }
 .contents__plus::before,
 .contents__minus::before {
-    content: '';
+    content: "";
     position: absolute;
     right: 4px;
     top: 9px;
@@ -104,7 +104,7 @@
     position: relative;
 }
 .boardV__inner h1::before {
-    content: '';
+    content: "";
     width: 40px;
     height: 40px;
     position: absolute;
@@ -116,7 +116,7 @@
     width: 100%;
     box-sizing: border-box;
     padding: 80px 80px 30px 80px;
-    background-color: #F2FFF5;
+    background-color: #f2fff5;
     border-radius: 30px;
 }
 .boardV__wrap h2 {
@@ -138,16 +138,16 @@
     margin: 5px 30px;
     position: relative;
 }
-.boardV__info span:nth-child(2)::before{
-    content: '|';
+.boardV__info span:nth-child(2)::before {
+    content: "|";
     position: absolute;
     left: -16px;
 }
 .boardV__info span:last-child {
     position: relative;
 }
-.boardV__info span:last-child::before{
-    content: '|';
+.boardV__info span:last-child::before {
+    content: "|";
     position: absolute;
     left: -19px;
 }
@@ -197,7 +197,7 @@
 .modi__pass {
     width: 100%;
     display: flex;
-    justify-content:right;
+    justify-content: right;
 }
 .modi__pass label {
     margin: 15px 10px 0 0;

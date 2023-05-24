@@ -24,7 +24,7 @@
         //이미지 타입 확인
         if($fileType == "image"){
             if($fileExtension == "jpg" ||  $fileExtension == "png" || $fileExtension == "gif"){
-                $blogImgDir = "../../assets/mypage/";
+                $blogImgDir = "../img/profile/";
                 $blogImgName = "Img_".time().rand(1,99999)."."."{$fileExtension}";
 
                 echo "이미지 파일이 맞습니다.";

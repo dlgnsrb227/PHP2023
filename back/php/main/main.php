@@ -236,7 +236,7 @@
                         <div class="box1">
                             <div class="side"></div>
                             <div class="header">
-                                <div class="h1">#뼈</div>
+                                <div class="h1 catebox">#뼈</div>
                                 <p>40대 / 남 / W**님</p>
                             </div>
                             <div class="main">
@@ -248,7 +248,7 @@
                         <div class="box2">
                             <div class="side"></div>
                             <div class="header">
-                                <div class="h1">#눈</div>
+                                <div class="h1 catebox">#눈</div>
                                 <p>20대 / 여 / y**님</p>
                             </div>
                             <div class="main">
@@ -259,7 +259,7 @@
                         <div class="box3">
                             <div class="side"></div>
                             <div class="header">
-                                <div class="h1">#임산부</div>
+                                <div class="h1 catebox">#임산부</div>
                                 <p>30대 / 여 / l**님</p>
                             </div>
                             <div class="main">
@@ -272,7 +272,7 @@
                         <div class="box4">
                             <div class="side"></div>
                             <div class="header">
-                                <div class="h1">#뼈</div>
+                                <div class="h1 catebox">#뼈</div>
                                 <p>온리포유의 답변</p>
                             </div>
                             <div class="main">
@@ -284,7 +284,7 @@
                         <div class="box5">
                             <div class="side"></div>
                             <div class="header">
-                                <div class="h1">#눈</div>
+                                <div class="h1 catebox">#눈</div>
                                 <p>온리포유의 답변</p>
                             </div>
                             <div class="main">
@@ -296,7 +296,7 @@
                         <div class="box6">
                             <div class="side"></div>
                             <div class="header">
-                                <div class="h1">#임산부</div>
+                                <div class="h1 catebox">#임산부</div>
                                 <p>온리포유의 답변</p>
                             </div>
                             <div class="main">

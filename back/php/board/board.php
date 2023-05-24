@@ -6,18 +6,15 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <title>요리방</title>
+<?php include "../include/head.php"; ?>
+    <title>요리방 메인</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <style>
         /* board */
         .board {
-            margin-top: 150px;
+            margin-top: 100px;
             background-color: blanchedalmond;
             width: 100%;
             height: 500px;
@@ -52,6 +49,8 @@
             border: 0;
             border-radius: 10px; 
             padding: 0 30px;
+            font-family: SBAggro;
+            font-weight: lighter;
         }
         .board__inner button {
             position: relative;
@@ -75,14 +74,14 @@
         }
          /* content */
         .board_slider {
-            margin-top: 200px;
+            margin-top: 100px;
             min-height: 500px;
         }
         .board_slider .title {
             font-size: 50px;
             font-weight: 500;
             text-align: center;
-            margin-bottom: 70px;
+            /* margin-bottom: 70px; */
         }
         .content__inner {
             display: flex;
@@ -144,6 +143,7 @@
             border-bottom: 2px solid #000;
             text-align: center;
             width: 100%;
+            font-weight: 100;
         }
         .board_table table tr:hover{
             background-color: #efefef;
@@ -157,6 +157,12 @@
         .board_table table td {
             padding: 15px 5px;
             border-bottom: 1px solid #000;
+        }
+        .board_table table td span {
+            font-weight: 500;
+        }
+        .board_table table td h4 {
+            font-weight: 100;
         }
         .board_table table td a {
             text-align: left;
@@ -245,11 +251,143 @@
             padding: 2px 7px;
             border-radius: 20px;
         }
+        #viwrap{
+            width: 100%;
+            height: 700px;
+            background-color: #ffae7f96;
+            margin-top: 50px;
+        }
+        .vicontainer {
+            width: 1217px;
+            height: 460px;
+            margin: 0 auto;
+            background-color: #ffffff56;
+            border-radius: 20px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            display: flex;
+        }
+        .vaside {
+            width: 550px;
+            height: 397px;
+            margin-left: 50px;
+            margin-top: 30px;
+        }
+        .vaside h1 {
+            font-size: 35px;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .vaside h3 {
+            font-size: 25px;
+            text-align: center;
+            padding-top: 30px;
+        }
+        .vaside p {
+            font-size: 16px;
+            font-weight: lighter;
+            color: #666;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .vaside h4 {
+            font-size: 18px;
+            font-weight: lighter;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .vcontent {
+            width: 566px;
+            height: 397px;
+            background-color: #ffe1a075;
+            margin-right: 50px;
+            margin-top: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .vcontent img {
+            max-width: 200%;
+            max-height: 200%;
+            cursor: pointer;
+        }
+        .vi1  {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+        .vi1 h1 {
+            font-size: 60px;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .vi1 .left-image {
+            margin-right: 10px;
+            width: 100px;
+            height: 100px;
+            margin-top: 70px;
+        }
+        .vi1 .right-image {
+            margin-left: 10px;
+            margin-top: 70px;
+            width: 100px;
+            height: 100px;
+        }
+        .boardtable__contents {
+            overflow: hidden;
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotateY(0deg);
+        }
+            100% {
+                transform: rotateY(720deg);
+        }
+        }
+
+        .vi1 img {
+            animation: rotate 2s linear infinite;
+        }
     </style>
 </head>
 <body>
     <?php include "../include/header.php" ?>
-    <main id="main">
+    <main id="main" class="aggro">
+        <div id="viwrap">
+            <div class="vi1">
+                <img src="../../assets/img/victory.png" alt="" class="left-image"> 
+                <h1>요리방 상금 백만 원의 주인공</h1>
+                <img src="../../assets/img/victory.png" alt="" class="right-image">
+            </div>
+            <div class="vicontainer">
+                <div class="vaside">
+<?php
+    $sql = "SELECT * FROM board ORDER BY boardView DESC LIMIT 1";
+    $result = $connect -> query($sql);
+
+    $info = $result -> fetch_array(MYSQLI_ASSOC);
+    // echo "<pre>";
+    // echo var_dump($info);
+    // echo "</pre>";
+?>
+                    <h3>🍒 맛있는 우리네 레시피 🍒</h3>
+                    <h1><?=$info['boardTitle']?></h1>
+                    <p><?=$info['boardAuthor']?>님  |  <?=date('y. m. d', $info['regTime'])?> |  조회수 <?=$info['boardView']?></p>
+                    <h4>언제든지 레시피를 올려보세요. <br> 여러분의 이야기가 많은 분들께 도움이 됩니다 !</h4>
+                </div>
+                <div class="vcontent">
+                    <a href="boardView.php?boardID=<?=$info['boardID']?>"><img src="../img/board/<?=$info['ImgSrc1']?>" alt="게시판 첫 번째 이미지"></a>
+                </div>
+            </div>
+        </div>
         <div class="board_slider">
             <div class="container">
                 <h2 class="title">많이 찾고 있는 레시피</h2>
@@ -378,7 +516,7 @@
                     <h2>최근레시피 목록</h2>
                     <a href="boardWrite.php" class="btnStyle3">글쓰기</a>
                 </div>
-                <table>
+                <table class="aggro">
                     <colgroup>
                         <col style="width: 15%;">
                         <col>
@@ -424,7 +562,7 @@
                 echo "</td>";
                 echo "<td>";
                 echo "<a href='boardView.php?boardID={$info['boardID']}'>".$info['boardTitle']."</a>";
-                echo "<p>".$info['boardContents1']."</p>";
+                echo "<p class='boardtable__contents'>".$info['boardContents1']."</p>";
                 echo "</td>";
                 echo "<td>".$info['boardAuthor']."</td>";
                 echo "<td>".date('y. m. d', $info['regTime'])."</td>";
