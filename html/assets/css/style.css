@@ -9,6 +9,9 @@
 /* 레이아웃 */
 @import "layout.css";
 
+/* main */
+@import "main.css";
+
 /* intro */
 @import "intro.css";
 

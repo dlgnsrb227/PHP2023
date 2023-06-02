@@ -12,6 +12,12 @@
 .intro__images {
     width: 27%;
 }
+.intro__images img {
+    border-radius: 50%;
+}
+.intro > .img > img {
+    border-radius: 50%;
+}
 .intro__text {
     width: 70%;
     font-size: 1.6rem;

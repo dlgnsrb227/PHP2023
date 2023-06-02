@@ -363,6 +363,9 @@
     width: 220px;
     height: 220px;
 } */
+.cards__inner.col5 > div {
+    width: 19%;
+}
 .cards__inner.col6 > div {
     width: 15.6666%;
 }

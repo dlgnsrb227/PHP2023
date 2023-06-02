@@ -64,7 +64,7 @@
     <!-- //skip -->
     <main id="main" class="container">
         <div class="join__inner">
-            <img src="../../assets/img/logo.png" alt="로고이미지" class="logoimg">
+            <a href="../main/main.php"><img src="../../assets/img/logo.png" alt="로고이미지" class="logoimg"></a>
             <h2>회원가입</h2>
             <div class="join__form">
                 <form action="joinSave.php" name="join" method="post" onsubmit="return joinChecks()">
@@ -172,12 +172,18 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        let isEmailCheck = false;
-        let isNickCheck = false;
-        let isIDCheck =false;
-        let isphoneCheck =false;
+        let emailBtn = false;
+        let nickBtn = false;
+        let IDBtn = false;
+        let phoneBtn = false;
+
+        let isEmailCheck = true;
+        let isNickCheck = true;
+        let isIDCheck =true;
+        let isphoneCheck =true;
 
         function emailChecking(){
+            emailBtn = true;
             let youEmail = $("#youEmail").val();
             if(youEmail == null || youEmail == ''){
                 $("#youEmailComment").text("* 이메일을 입력해주세요");
@@ -191,9 +197,11 @@
                         if(data.result == "good"){
                             $("#youEmailComment").text("* 사용 가능한 이메일 입니다");
                             isEmailCheck = true;
+                            return isEmailCheck;
                         }else {
                             $("#youEmailComment").text("* 이미 존재하는 이메일 입니다");
                             isEmailCheck = false;
+                            return isEmailCheck;
                         }
                     },
                     error : function(request, status, error){
@@ -205,6 +213,7 @@
             }
         }
         function nickChecking(){
+            nickBtn = true;
             let youNick = $("#youNick").val();
             if(youNick == null || youNick == ''){
                 $("#youNickComment").text("* 닉네임을 입력해주세요!");
@@ -218,9 +227,11 @@
                         if(data.result == "good"){
                             $("#youNickComment").text("* 사용 가능한 닉네임 입니다");
                             isNickCheck = true;
+                            return isNickCheck;
                         } else {
                             $("#youNickComment").text("* 이미 존재하는 닉네임 입니다");
                             isNickCheck = false;
+                            return isNickCheck;
                         }
                     },
                     error : function(request, status, error){
@@ -232,6 +243,7 @@
             }
         }
         function IdChecking(){
+            IDBtn = true;
             let youID = $("#youID").val();
             if(youID == null || youID == ''){
                 $("#youIDComment").text("* 아이디을 입력해주세요!");
@@ -245,9 +257,11 @@
                         if(data.result == "good"){
                             $("#youIDComment").text("* 사용 가능한 아이디 입니다");
                             isIDCheck = true;
+                            return isIDCheck;
                         } else {
                             $("#youIDComment").text("* 이미 존재하는 아이디 입니다");
                             isIDCheck = false;
+                            return isIDCheck;
                         }
                     },
                     error : function(request, status, error){
@@ -259,6 +273,7 @@
             }
         }
         function phoneChecking(){
+            phoneBtn = true;
             let youPhone = $("#youPhone").val();
             if(youPhone == null || youPhone == ''){
                 $("#youPhoneComment").text("* 연락받으실 연락처를 적어주세요.");
@@ -272,9 +287,11 @@
                         if(data.result == "good"){
                             $("#youPhoneComment").text("* 사용 가능한 번호입니다.");
                             isPhoneCheck = true;
+                            return isPhoneCheck;
                         } else {
                             $("#youPhoneComment").text("* 이미 등록된 번호입니다.");
                             isPhoneCheck = false;
+                            return isPhoneCheck;
                         }
                     },
                     error : function(request, status, error){
@@ -285,6 +302,7 @@
                 })
             }
         }
+        
         function joinChecks(){
             //아이디 유효성 검사
             if($("#youID").val() == ''){
@@ -294,7 +312,7 @@
             }
             let getyouID = RegExp(/^[a-z0-9]+$/);
             if(!getyouID.test($("#youID").val())){
-                $("#youIDComment").text("* ID는 영어만 사용 가능합니다.");
+                $("#youIDComment").text("* ID는 영어와 숫자만 사용 가능합니다.");
                 $("#youID").val('');
                 $("#youID").focus();
                 return false;
@@ -376,10 +394,47 @@
                 $("#youPhone").focus();
                 return false;
             }
-            let getYouPhone = RegExp(/01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/);
+            let getYouPhone = RegExp(/^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/);
             if(!getYouPhone.test($("#youPhone").val())){
                 $("#youPhoneComment").text("* 휴대폰번호가 정확하지 않습니다. (000-0000-0000)");
                 $("#youPhone").val('');
+                $("#youPhone").focus();
+                return false;
+            }
+            if (isEmailCheck == false){
+                $("#youEmailComment").text("* 이메일 중복확인을 눌러주세요");
+                $("#youEmail").focus();
+                return false;
+            }
+            else if (isNickCheck == false){
+                $("#youNickComment").text("* 닉네임 중복확인을 눌러주세요");
+                $("#youNick").focus();
+                return false;
+            }
+            else if (isIDCheck == false){
+                $("#youIDComment").text("* 아이디 중복확인을 눌러주세요");
+                $("#youID").focus();
+                return false;
+            }
+            else if (isphoneCheck == false){
+                $("#youPhoneComment").text("* 연락처 중복확인을 눌러주세요");
+                $("#youPhone").focus();
+                return false;
+            }
+            if(emailBtn == false){
+                $("#youEmailComment").text("* 이메일 중복확인을 눌러주세요");
+                $("#youEmail").focus();
+                return false;
+            } else if(nickBtn == false){
+                $("#youNickComment").text("* 닉네임 중복확인을 눌러주세요");
+                $("#youNick").focus();
+                return false;
+            } else if(IDBtn == false){
+                $("#youIDComment").text("* 아이디 중복확인을 눌러주세요");
+                $("#youID").focus();
+                return false;
+            } else if(phoneBtn == false){
+                $("#youPhoneComment").text("* 연락처 중복확인을 눌러주세요");
                 $("#youPhone").focus();
                 return false;
             }
